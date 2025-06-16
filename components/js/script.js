@@ -153,25 +153,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-     fetch('data/projects.yaml')
-  .then(response => response.text())
-  .then(yamlText => {
-    const projects = jsyaml.load(yamlText);
-    const container = document.getElementById('project-grid');
-    projects.forEach(project => {
-      const div = document.createElement('div');
-      div.className = 'project-card';
-      div.innerHTML = `
-        <img src="${project.image}" alt="${project.title}">
-        <div class="project-info">
-          <h3>${project.title}</h3>
-          <p>${project.description}</p>
-        </div>
-      `;
-      container.appendChild(div);
-    });
-  })
-  .catch(error => {
-    console.error('Gagal memuat proyek:', error);
-  });
-});
+    

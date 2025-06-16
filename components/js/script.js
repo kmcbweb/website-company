@@ -153,13 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-   fetch('data/projects.yml')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Gagal mengambil file YAML');
-    }
-    return response.text();
-  })
+        fetch('data/projects.yaml')
+  .then(response => response.text())
   .then(yamlText => {
     const projects = jsyaml.load(yamlText);
     const container = document.getElementById('project-grid');
@@ -179,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
   .catch(error => {
     console.error('Gagal memuat proyek:', error);
   });
+});
 
 
     

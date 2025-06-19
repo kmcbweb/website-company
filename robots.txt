@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://karyamandiricakrabuana.netlify.app/sitemap.xml
+Sitemap: https://ptkaryamandiricakrabuana.netlify.app/sitemap.xml
 

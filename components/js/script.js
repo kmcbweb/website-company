@@ -153,13 +153,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-     fetch('data/proyek.yml')
+     fetch('data/projects.yaml') // ✅ ubah di sini juga
   .then(response => response.text())
   .then(yamlText => {
-    const projects = jsyaml.load(yamlText); // <-- object, bukan array
+    const projects = jsyaml.load(yamlText);
     const container = document.getElementById('project-grid');
 
-    // ✅ akses array di dalam `items`
     projects.items.forEach(project => {
       const div = document.createElement('div');
       div.className = 'project-card';
@@ -176,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
   .catch(error => {
     console.error('Gagal memuat proyek:', error);
   });
+
 
 });
 

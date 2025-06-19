@@ -153,12 +153,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-        fetch('data/proyek.yml')
+     fetch('data/proyek.yml')
   .then(response => response.text())
   .then(yamlText => {
-    const projects = jsyaml.load(yamlText);
+    const projects = jsyaml.load(yamlText); // <-- object, bukan array
     const container = document.getElementById('project-grid');
-    projects.forEach(project => {
+
+    // ✅ akses array di dalam `items`
+    projects.items.forEach(project => {
       const div = document.createElement('div');
       div.className = 'project-card';
       div.innerHTML = `
@@ -174,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
   .catch(error => {
     console.error('Gagal memuat proyek:', error);
   });
+
 });
 
 

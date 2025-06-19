@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-        fetch('data/projects.yaml')
+        fetch('data/proyek.yml')
   .then(response => response.text())
   .then(yamlText => {
     const projects = jsyaml.load(yamlText);

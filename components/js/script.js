@@ -176,17 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error('Gagal memuat proyek:', error);
   });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const newsletterForm = document.querySelector('.newsletter-form');
-  
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function () {
-      setTimeout(function () {
-        window.location.href = 'https://ptkaryamandiricakrabuana.netlify.app/terima-kasih.html';
-      }, 1500);
-    });
-  }
-});
+
 
 });
 

@@ -6,13 +6,13 @@ media_folder: "assets"
 public_folder: "/assets"
 
 collections:
-  - name: "proyek"
+  - name: "projects"
     label: "Proyek Terbaru"
     label_singular: "Proyek"
     files:
       - file: "data/projects.yaml"
         label: "Daftar Proyek"
-        name: "proyek"
+        name: "Projects"
         fields:
           - label: "Daftar Proyek"
             name: "items"

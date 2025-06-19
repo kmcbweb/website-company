@@ -13,7 +13,7 @@ collections:
       - file: "data/projects.yaml"
         label: "Daftar Proyek"
         name: "Proyek"
-         format: "yaml"
+        format: "yaml"
         fields:
           - label: "Daftar Proyek"
             name: "items"

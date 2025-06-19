@@ -10,9 +10,10 @@ collections:
     label: "Proyek Terbaru"
     label_singular: "Proyek"
     files:
-      - file: "data/proyek.yml"
+      - file: "data/projects.yaml"
         label: "Daftar Proyek"
         name: "Proyek"
+         format: "yaml"
         fields:
           - label: "Daftar Proyek"
             name: "items"

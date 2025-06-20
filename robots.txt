@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ptkaryamandiricakrabuana.netlify.app/sitemap.xml

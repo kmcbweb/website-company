@@ -12,7 +12,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     const message = document.getElementById('message').value.trim();
 
     // Validate form fields
-    if (!from_name || from_name.length < 2 || !/^[a-zA-Z\s]+$/.test(from_name)) {
+    if (!from_name || from_name.length < 2 || !/^[a-zA-Z\s'.-]+$/.test(from_name)) {
         alert("Nama harus diisi dengan huruf minimal 2 karakter.");
         return;
     }

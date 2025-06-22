@@ -199,33 +199,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-   // ✅ Validasi form kontak
-    const kontakForm = document.getElementById("kontak-form");
-    if (kontakForm) {
-        kontakForm.addEventListener("submit", function (e) {
-            const emailInput = this.querySelector("input[name='email']");
-            const email = emailInput.value.trim();
-            const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-
-            if (!emailPattern.test(email)) {
-                e.preventDefault();
-                alert("Masukkan alamat email yang valid.");
-                emailInput.focus();
-                return;
-            }
-
-            const phoneInput = this.querySelector("input[name='phone']");
-            const phone = phoneInput.value.trim();
-            const phonePattern = /^\+?[0-9]{10,15}$/;
-
-            if (!phonePattern.test(phone)) {
-                e.preventDefault();
-                alert("Masukkan nomor telepon yang valid (10–15 digit).");
-                phoneInput.focus();
-                return;
-            }
-        });
-    }
-
                           
 });

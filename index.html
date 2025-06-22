@@ -322,20 +322,7 @@
   </form>
 </div>
 
-<!-- Validasi Email JS -->
-<script>
-  document.getElementById("mc-form").addEventListener("submit", function(e) {
-    const emailInput = this.querySelector("input[name='EMAIL']");
-    const email = emailInput.value.trim();
-    const pattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-    if (!pattern.test(email)) {
-      e.preventDefault();
-      alert("Masukkan alamat email yang valid.");
-      emailInput.focus();
-    }
-  });
-</script>
 
 
             
@@ -407,13 +394,6 @@
 <script src="components/js/script.js"></script>
     <script src="components/js/hero.js"></script>
 <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-<script>
-  (function($) {
-    window.fnames = new Array(); 
-    window.ftypes = new Array();
-    fnames[0]='EMAIL'; ftypes[0]='email';
-  }(jQuery));
-  var $mcj = jQuery.noConflict(true);
-</script>
+
 </body>
 </html>

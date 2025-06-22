@@ -284,7 +284,7 @@
 
             
 
-     <div class="newsletter">
+<div class="newsletter">
   <h3>Newsletter</h3>
   <p>Subscribe newsletter untuk mendapat update & berita terbaru</p>
 
@@ -292,18 +292,26 @@
         method="post"
         target="_blank"
         class="newsletter-form"
-        novalidate>
+        novalidate
+        id="mc-form">
 
     <!-- Email input -->
-    <input type="email" name="EMAIL" placeholder="Masukkan email anda..." required>
+    <input type="email"
+           name="EMAIL"
+           placeholder="Masukkan email anda..."
+           required
+           autocomplete="email"
+           aria-label="Alamat Email" />
 
-    <!-- Bot protection field (jangan dihapus) -->
+    <!-- Bot protection field -->
     <div style="position: absolute; left: -5000px;" aria-hidden="true">
       <input type="text" name="b_b6c6663cc4cf18c5b42714889_26d7ff4936" tabindex="-1" value="">
     </div>
 
     <!-- Submit button -->
-    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+    <button type="submit" aria-label="Kirim">
+      <i class="fas fa-paper-plane"></i>
+    </button>
 
     <!-- Mailchimp response messages -->
     <div id="mce-responses" class="clear foot">
@@ -313,6 +321,22 @@
 
   </form>
 </div>
+
+<!-- Validasi Email JS -->
+<script>
+  document.getElementById("mc-form").addEventListener("submit", function(e) {
+    const emailInput = this.querySelector("input[name='EMAIL']");
+    const email = emailInput.value.trim();
+    const pattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+    if (!pattern.test(email)) {
+      e.preventDefault();
+      alert("Masukkan alamat email yang valid.");
+      emailInput.focus();
+    }
+  });
+</script>
+
 
             
             <div class="contact-info">

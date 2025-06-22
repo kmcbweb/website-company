@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             touchEndX = touchX;
             const offset = Math.max(-300, deltaX);
-            sidebar.style.transform = `translateX(${offset}px)`;
+            sidebar.style.transform = translateX(${offset}px);
         }
 
         lastTouchY = touchY;
@@ -146,37 +146,60 @@ document.addEventListener('DOMContentLoaded', function () {
         if (deltaX < -80 || velocity < -0.3) {
             toggleSidebar(false);
             sidebar.style.transform = '';
+
+
         } else {
             sidebar.style.transform = '';
         }
     });
 
-    // Load data YAML (kalau ada project-grid)
-    const projectGrid = document.getElementById('project-grid');
-    if (projectGrid) {
-        fetch('data/projects.yaml')
-            .then(response => response.text())
-            .then(yamlText => {
-                const projects = jsyaml.load(yamlText);
-                projects.items.forEach(project => {
-                    const div = document.createElement('div');
-                    div.className = 'project-card';
-                    div.innerHTML = `
-                        <img src="${project.image}" alt="${project.title}">
-                        <div class="project-info">
-                            <h3>${project.title}</h3>
-                            <p>${project.description}</p>
-                        </div>
-                    `;
-                    projectGrid.appendChild(div);
-                });
-            })
-            .catch(error => {
-                console.error('Gagal memuat proyek:', error);
-            });
-    }
+     fetch('data/projects.yaml') // ✅ ubah di sini juga
+  .then(response => response.text())
+  .then(yamlText => {
+    const projects = jsyaml.load(yamlText);
+    const container = document.getElementById('project-grid');
 
-    // Validasi form kontak
+    projects.items.forEach(project => {
+      const div = document.createElement('div');
+      div.className = 'project-card';
+      div.innerHTML = 
+        <img src="${project.image}" alt="${project.title}">
+        <div class="project-info">
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+        </div>
+      ;
+      container.appendChild(div);
+    });
+  })
+  .catch(error => {
+    console.error('Gagal memuat proyek:', error);
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+  (function($) {
+    window.fnames = new Array(); 
+    window.ftypes = new Array();
+    fnames[0] = 'EMAIL'; 
+    ftypes[0] = 'email';
+  })(jQuery);
+
+  var $mcj = jQuery.noConflict(true);
+});
+
+ document.getElementById("mc-form").addEventListener("submit", function(e) {
+    const emailInput = this.querySelector("input[name='EMAIL']");
+    const email = emailInput.value.trim();
+    const pattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+    if (!pattern.test(email)) {
+      e.preventDefault();
+      alert("Masukkan alamat email yang valid.");
+      emailInput.focus();
+    }
+  });
+
+   // ✅ Validasi form kontak
     const kontakForm = document.getElementById("kontak-form");
     if (kontakForm) {
         kontakForm.addEventListener("submit", function (e) {
@@ -202,21 +225,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
         });
-
-         // ✅ Validasi form Mailchimp (newsletter)
-    const mcForm = document.getElementById("mc-form");
-    if (mcForm) {
-        mcForm.addEventListener("submit", function (e) {
-            const emailInput = this.querySelector("input[name='EMAIL']");
-            const email = emailInput.value.trim();
-            const pattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-
-            if (!pattern.test(email)) {
-                e.preventDefault();
-                alert("Masukkan alamat email yang valid untuk langganan.");
-                emailInput.focus();
-            }
-        });
-        
     }
+
+                          
 });
+

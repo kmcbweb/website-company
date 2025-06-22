@@ -22,3 +22,19 @@ collections:
               - { label: "Judul", name: "title", widget: "string" }
               - { label: "Deskripsi", name: "description", widget: "text" }
               - { label: "Gambar", name: "image", widget: "image" }
+
+  - name: "footer"
+    label: "Footer"
+    files:
+      - file: "data/footer.yaml"
+        label: "Konten Footer"
+        name: "footer"
+        format: "yaml"
+        fields:
+          - { label: "Deskripsi Perusahaan", name: "deskripsi", widget: "text" }
+          - { label: "Alamat", name: "alamat", widget: "string" }
+          - { label: "No WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "Jam Operasional", name: "jam", widget: "text" }
+          - { label: "Copyright", name: "copyright", widget: "string" }

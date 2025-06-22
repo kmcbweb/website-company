@@ -176,8 +176,29 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error('Gagal memuat proyek:', error);
   });
 
+document.addEventListener("DOMContentLoaded", function () {
+  (function($) {
+    window.fnames = new Array(); 
+    window.ftypes = new Array();
+    fnames[0] = 'EMAIL'; 
+    ftypes[0] = 'email';
+  })(jQuery);
 
+  var $mcj = jQuery.noConflict(true);
+});
 
+ document.getElementById("mc-form").addEventListener("submit", function(e) {
+    const emailInput = this.querySelector("input[name='EMAIL']");
+    const email = emailInput.value.trim();
+    const pattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+    if (!pattern.test(email)) {
+      e.preventDefault();
+      alert("Masukkan alamat email yang valid.");
+      emailInput.focus();
+    }
+  });
+    
 });
 
 

@@ -200,26 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
    
-document.addEventListener("DOMContentLoaded", function () {
-  fetch('/data/footer.yaml')
-    .then(response => response.text())
-    .then(text => {
-      const data = jsyaml.load(text);
-
-      document.getElementById('deskripsi-footer').textContent = data.deskripsi;
-      document.getElementById('alamat-footer').textContent = data.alamat;
-      document.getElementById('wa-footer').href = data.whatsapp;
-      document.getElementById('wa-footer').textContent = data.whatsapp;
-      document.getElementById('email-footer').href = 'mailto:' + data.email;
-      document.getElementById('email-footer').textContent = data.email;
-      document.getElementById('instagram-footer').href = data.instagram;
-      document.getElementById('instagram-footer').textContent = 'Instagram';
-      document.getElementById('jam-footer').innerHTML = data.jam.replace(/\n/g, '<br>');
-      document.getElementById('copyright-footer').textContent = data.copyright;
-    })
-    .catch(err => console.error("Gagal load footer.yaml:", err));
-});
-
 
                           
 });

@@ -20,4 +20,7 @@ items:
     description: Pemasangan papan peringatan sebagai langkah preventif untuk
       meningkatkan kesadaran dan kepatuhan terhadap standar keselamatan di area
       terbatas.
-  
+  - title: Penyiraman Jalan Tambang
+    description: penyiraman jalan tambang yang dilakukan tenaga kerja pada hari ini,
+      bertujuan untuk mengurangi debu dan polusi
+    image: /assets/portofolio/penyiraman/penyiraman1.jpg

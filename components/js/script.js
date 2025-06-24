@@ -178,8 +178,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-      // 🔽 Load data proyek terbaru dari proyek.json
- fetch('/data/proyek.json')
+     // Load dan tampilkan data proyek dari JSON
+fetch('/data/proyek.json')
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById('project-grid');
@@ -202,11 +202,10 @@ document.addEventListener('DOMContentLoaded', function () {
       container.appendChild(el);
     });
   })
-  .catch(err => {
-    console.error('Gagal memuat proyek:', err);
-    const container = document.getElementById('project-grid');
-    if (container) container.innerHTML = '<p>Gagal memuat data proyek.</p>';
+  .catch(error => {
+    console.error("Gagal memuat data proyek:", error);
   });
+
 
 
 });

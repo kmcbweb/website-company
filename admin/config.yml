@@ -9,7 +9,7 @@ collections:
   - name: "proyek"
     label: "Proyek Terbaru"
     label_singular: "Proyek"
-    folder: "data/proyek"       
+    folder: "data/projects.yaml"       
     create: true
     delete: true
     format: "yaml"

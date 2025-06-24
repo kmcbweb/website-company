@@ -153,28 +153,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-     fetch('data/projects.yaml')
-  .then(response => response.text())
-  .then(yamlText => {
-    const projects = jsyaml.load(yamlText);
-    const container = document.getElementById('project-grid');
 
-    projects.items.forEach(project => {
-      const div = document.createElement('div');
-      div.className = 'project-card';
-      div.innerHTML = `
-        <img src="${project.image}" alt="${project.title}">
-        <div class="project-info">
-          <h3>${project.title}</h3>
-          <p>${project.description}</p>
-        </div>
-      `;
-      container.appendChild(div);
+document.addEventListener("DOMContentLoaded", function () {
+  fetch('/data/proyek.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('daftar-proyek');
+      if (!container) return;
+
+      data.forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'proyek-item';
+        el.innerHTML = `
+          <h3>${item.title}</h3>
+          <img src="${item.image}" alt="${item.title}" style="max-width: 300px; display: block; margin-bottom: 10px;">
+          <p>${item.description}</p>
+        `;
+        container.appendChild(el);
+      });
+    })
+    .catch(err => {
+      console.error('Gagal memuat proyek:', err);
+      const container = document.getElementById('daftar-proyek');
+      if (container) container.innerHTML = '<p>Gagal memuat data proyek.</p>';
     });
-  })
-  .catch(error => {
-    console.error('Gagal memuat proyek:', error);
-  });
+});
+
 
   document.addEventListener("DOMContentLoaded", function () {
   (function($) {

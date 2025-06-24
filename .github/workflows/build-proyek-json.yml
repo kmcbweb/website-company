@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Clone repo
         uses: actions/checkout@v3
@@ -40,13 +41,12 @@ jobs:
           console.log('✅ proyek.json berhasil dibuat');
           "
 
-            - name: Commit dan Push hasil
-          run: |
+      - name: Commit dan Push hasil
+        run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/proyek.json
-          git commit -m 'Generate/update proyek.json [auto]'
+          git commit -m 'Generate/update proyek.json [auto]' || echo "Tidak ada perubahan untuk commit"
           git push origin HEAD:main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

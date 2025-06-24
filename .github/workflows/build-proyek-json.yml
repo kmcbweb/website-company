@@ -1,0 +1,49 @@
+name: Generate proyek.json
+
+on:
+  push:
+    paths:
+      - 'data/proyek/*.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install js-yaml
+        run: npm install js-yaml
+
+      - name: Merge YAML files
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const yaml = require('./node_modules/js-yaml');
+
+          const folderPath = './data/proyek/';
+          const outputFile = './data/proyek.json';
+          const files = fs.readdirSync(folderPath).filter(f => f.endsWith('.yaml') || f.endsWith('.yml'));
+
+          const allData = files.map(file => {
+            const content = fs.readFileSync(path.join(folderPath, file), 'utf8');
+            return yaml.load(content);
+          });
+
+          fs.writeFileSync(outputFile, JSON.stringify(allData, null, 2));
+          console.log('✅ proyek.json berhasil dibuat');
+          "
+
+      - name: Commit dan Push hasil
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/proyek.json
+          git commit -m 'Generate/update proyek.json [auto]'
+          git push

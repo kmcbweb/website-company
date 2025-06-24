@@ -154,31 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  fetch('/data/proyek.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('project-grid');
-      if (!container) return;
-
-      data.forEach(item => {
-        const el = document.createElement('div');
-        el.className = 'project-item';
-        el.innerHTML = `
-          <img src="${item.image}" alt="${item.title}" class="project-image">
-          <h3 class="project-title">${item.title}</h3>
-          <p class="project-description">${item.description}</p>
-        `;
-        container.appendChild(el);
-      });
-    })
-    .catch(err => {
-      console.error('Gagal memuat proyek:', err);
-      const container = document.getElementById('project-grid');
-      if (container) container.innerHTML = '<p>Gagal memuat data proyek.</p>';
-    });
-
-
 
   document.addEventListener("DOMContentLoaded", function () {
   (function($) {
@@ -203,5 +178,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  
+      // 🔽 Load data proyek terbaru dari proyek.json
+  fetch('/data/proyek.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('project-grid');
+      if (!container) return;
+
+      data.forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'project-item';
+        el.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" class="project-image">
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+        `;
+        container.appendChild(el);
+      });
+    })
+    .catch(err => {
+      console.error('Gagal memuat proyek:', err);
+      const container = document.getElementById('project-grid');
+      if (container) container.innerHTML = '<p>Gagal memuat data proyek.</p>';
+    });
+
 });

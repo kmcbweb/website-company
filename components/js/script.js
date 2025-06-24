@@ -180,28 +180,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
      // Load dan tampilkan data proyek dari JSON
 
-  fetch('/data/proyek.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Gagal mengambil data proyek.json');
-      return res.json();
-    })
-    .then(data => {
-      const container = document.getElementById('project-grid');
-      if (!container) return;
+ fetch('data/proyek.json')
+  .then(response => response.json())
+  .then(projects => {
+    const container = document.getElementById('project-grid');
 
-      container.innerHTML = data.map(item => `
-        <div class="project-item">
-          <img src="${item.image}" alt="${item.title}">
-          <div class="project-info">
-            <h3>${item.title}</h3>
-            <p>${item.description}</p>
-          </div>
+    projects.forEach(project => {
+      const div = document.createElement('div');
+      div.className = 'project-card';
+      div.innerHTML = `
+        <img src="${project.image}" alt="${project.title}">
+        <div class="project-info">
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
         </div>
-      `).join('');
-    })
-    .catch(err => {
-      console.error('Gagal memuat proyek:', err);
+      `;
+      container.appendChild(div);
     });
+  })
+  .catch(error => {
+    console.error('Gagal memuat proyek:', error);
+  });
+
 });
 
 

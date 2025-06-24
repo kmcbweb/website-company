@@ -9,18 +9,13 @@ collections:
   - name: "proyek"
     label: "Proyek Terbaru"
     label_singular: "Proyek"
-    folder: "data/projects.yaml"       
+    folder: "data/proyek"
     create: true
     delete: true
     format: "yaml"
-    slug: "{{slug}}"            
+    slug: "{{slug}}"
     fields:
-      - label: "Judul"
-        name: "title"
-        widget: "string"
-      - label: "Deskripsi"
-        name: "description"
-        widget: "text"
-      - label: "Gambar"
-        name: "image"
-        widget: "image"
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Deskripsi", name: "description", widget: "text" }
+      - { label: "Gambar", name: "image", widget: "image" }
+

@@ -158,26 +158,26 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch('/data/proyek.json')
     .then(response => response.json())
     .then(data => {
-      const container = document.getElementById('daftar-proyek');
+      const container = document.getElementById('project-grid');
       if (!container) return;
 
       data.forEach(item => {
         const el = document.createElement('div');
-        el.className = 'proyek-item';
+        el.className = 'project-item';
         el.innerHTML = `
-          <h3>${item.title}</h3>
-          <img src="${item.image}" alt="${item.title}" style="max-width: 300px; display: block; margin-bottom: 10px;">
-          <p>${item.description}</p>
+          <img src="${item.image}" alt="${item.title}" class="project-image">
+          <h3 class="project-title">${item.title}</h3>
+          <p class="project-description">${item.description}</p>
         `;
         container.appendChild(el);
       });
     })
     .catch(err => {
       console.error('Gagal memuat proyek:', err);
-      const container = document.getElementById('daftar-proyek');
+      const container = document.getElementById('project-grid');
       if (container) container.innerHTML = '<p>Gagal memuat data proyek.</p>';
     });
-});
+
 
 
   document.addEventListener("DOMContentLoaded", function () {

@@ -181,12 +181,21 @@ document.addEventListener('DOMContentLoaded', function () {
      // Load dan tampilkan data proyek dari JSON
 function loadProjects() {
   fetch('/data/proyek.json')
-    .then(res => res.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Gagal memuat proyek.json');
+      }
+      return response.json();
+    })
     .then(data => {
       const container = document.getElementById('project-grid');
-      if (!Array.isArray(data)) return console.error('JSON bukan array');
+      if (!container) return;
+      if (!Array.isArray(data)) {
+        console.error("Format JSON tidak valid: harus array");
+        return;
+      }
 
-      container.innerHTML = data.map(item => `
+      const html = data.map(item => `
         <div class="project-item">
           <img src="${item.image}" alt="${item.title}">
           <div class="project-info">
@@ -195,11 +204,15 @@ function loadProjects() {
           </div>
         </div>
       `).join('');
+
+      container.innerHTML = html;
     })
-    .catch(err => console.error('Fetch error:', err));
+    .catch(error => {
+      console.error("Terjadi kesalahan saat memuat proyek:", error);
+    });
 }
 
-document.addEventListener('DOMContentLoaded', loadProjects);
+document.addEventListener("DOMContentLoaded", loadProjects);
 
 
 

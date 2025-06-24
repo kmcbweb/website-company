@@ -179,32 +179,28 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
      // Load dan tampilkan data proyek dari JSON
-fetch('/data/proyek.json')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('project-grid');
-    if (!container) return;
+function loadProjects() {
+  fetch('/data/proyek.json')
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById('project-grid');
+      if (!Array.isArray(data)) return console.error('JSON bukan array');
 
-    container.innerHTML = ''; // Kosongkan dulu
+      container.innerHTML = data.map(item => `
+        <div class="project-item">
+          <img src="${item.image}" alt="${item.title}">
+          <div class="project-info">
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+          </div>
+        </div>
+      `).join('');
+    })
+    .catch(err => console.error('Fetch error:', err));
+}
 
-    data.forEach(item => {
-      const el = document.createElement('div');
-      el.className = 'project-item';
-      el.innerHTML = `
-        <div class="project-image-wrapper">
-          <img src="${item.image}" alt="${item.title}" class="project-image" />
-        </div>
-        <div class="project-text">
-          <h3 class="project-title">${item.title}</h3>
-          <p class="project-description">${item.description}</p>
-        </div>
-      `;
-      container.appendChild(el);
-    });
-  })
-  .catch(error => {
-    console.error("Gagal memuat data proyek:", error);
-  });
+document.addEventListener('DOMContentLoaded', loadProjects);
+
 
 
 

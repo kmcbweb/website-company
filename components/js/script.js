@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
      // Load dan tampilkan data proyek dari JSON
-document.addEventListener("DOMContentLoaded", function () {
+
   fetch('/data/proyek.json')
     .then(res => {
       if (!res.ok) throw new Error('Gagal mengambil data proyek.json');

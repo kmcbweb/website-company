@@ -2,11 +2,81 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pesan Terkirim</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .thanks-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .thanks-card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease;
+    }
+
+    .thanks-card h1 {
+      font-size: 2rem;
+      color: #009688;
+    }
+
+    .thanks-card p {
+      font-size: 1.1rem;
+      margin: 20px 0;
+      color: #555;
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: #009688;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #00796b;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Terima kasih!</h1>
-  <p>Pesan Anda berhasil dikirim. Kami akan segera menghubungi Anda.</p>
-  <a href="https://karyamandiricakrabuana.netlify.app/">Kembali ke Beranda</a>
+  <div class="thanks-container">
+    <div class="thanks-card">
+      <h1>🎉 Terima Kasih!</h1>
+      <p>Pesan Anda telah berhasil dikirim. Kami akan segera menghubungi Anda.</p>
+      <a href="/" class="back-btn">Kembali ke Beranda</a>
+    </div>
+  </div>
+
+  <script>
+    console.log("Halaman pesan terkirim berhasil dimuat.");
+  </script>
 </body>
 </html>

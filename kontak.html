@@ -141,13 +141,16 @@
     </section>
 
     <!-- Contact Form Section -->
-   <section class="contact-form-section">
+  <section class="contact-form-section">
   <div class="form-container">
     <h2>Ajukan Pertanyaan atau Permintaan Penawaran</h2>
     
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-      <!-- Anti-spam honeypot -->
+      <!-- Redirect ke halaman konfirmasi -->
       <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="redirect" value="/pesanterkirim.html" />
+
+      <!-- Honeypot untuk anti-spam -->
       <p hidden>
         <label>Jangan diisi: <input name="bot-field" /></label>
       </p>
@@ -172,6 +175,7 @@
     </form>
   </div>
 </section>
+
 
 
     <!-- WhatsApp Float Button -->

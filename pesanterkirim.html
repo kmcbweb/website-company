@@ -76,17 +76,14 @@
       <a href="/" class="back-btn">Kembali ke Beranda</a>
     </div>
   </div>
-  
- <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/assets/logo/favicon.png" type="image/png">
-  <title>Pesan Terkirim</title>
+
+  <!-- ✅ Form Netlify (harus ada agar halaman dikenali sebagai target form) -->
   <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-</form>
-  
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
+
   <script>
     console.log("Halaman pesan terkirim berhasil dimuat.");
   </script>

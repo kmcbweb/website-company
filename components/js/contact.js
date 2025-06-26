@@ -1,73 +1,46 @@
-// Initialize EmailJS with your public key
-emailjs.init('YOUR_PUBLIC_KEY');
-
-// Contact Form Submission
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Get form field values
-    const from_name = document.getElementById('name').value.trim();
-    const from_email = document.getElementById('email').value.trim();
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const message = document.getElementById('message').value.trim();
 
-    // Validate form fields
-    if (!from_name || from_name.length < 2 || !/^[a-zA-Z\s'.-]+$/.test(from_name)) {
-        alert("Nama harus diisi dengan huruf minimal 2 karakter.");
-        return;
+    const phoneClean = phone.replace(/\D/g, '');
+
+    if (!name || name.length < 2 || !/^[a-zA-Z\s'.-]+$/.test(name)) {
+      alert("Nama harus diisi dengan huruf minimal 2 karakter.");
+      e.preventDefault();
+      return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!from_email || !emailRegex.test(from_email)) {
-        alert("Silakan masukkan email yang valid.");
-        return;
+    if (!email || !emailRegex.test(email)) {
+      alert("Silakan masukkan email yang valid.");
+      e.preventDefault();
+      return;
     }
 
-    const phoneClean = phone.replace(/\D/g, ''); // Remove non-digit characters
     if (!phone || phoneClean.length < 10 || phoneClean.length > 15) {
-        alert("Nomor telepon harus terdiri dari 10–15 digit angka.");
-        return;
+      alert("Nomor telepon harus terdiri dari 10–15 digit angka.");
+      e.preventDefault();
+      return;
     }
 
     if (!message || message.length < 5) {
-        alert("Pesan harus minimal 5 karakter.");
-        return;
+      alert("Pesan harus minimal 5 karakter.");
+      e.preventDefault();
+      return;
     }
+  });
 
-    // Show loading state
-    const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Mengirim...';
-    submitBtn.disabled = true;
-
-    // Prepare template parameters
-    const templateParams = {
-        from_name: from_name,
-        from_email: from_email,
-        phone: phone,
-        message: message,
-        to_email: 'aminthohari32@yahoo.co.id'
-    };
-
-    // Send email using EmailJS
-    emailjs.send('service_kmcb', 'template_kmcb', templateParams) //servicekmcb & templatekmcs diganti id emailjs yang sebenarnya
-        .then(function() {
-            // Show success message
-            alert('Pesan Anda telah berhasil terkirim!');
-            
-            // Reset form
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            // Show error message
-            console.error('Error:', error);
-            alert('Maaf, terjadi kesalahan: ' + error.text);
-        })
-        .finally(function() {
-            // Reset button state
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        });
-});
+  // Anti-XSS realtime saat mengetik pesan
+  function sanitizeInput(el) {
+    el.value = el.value
+      .replace(/</g, "")
+      .replace(/>/g, "")
+      .replace(/script/gi, "");
+  }
+</script>
 
 // WhatsApp Popup Functionality
 const whatsappFloat = document.querySelector('.whatsapp-float');

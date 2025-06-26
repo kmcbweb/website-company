@@ -1,4 +1,4 @@
-<script>
+
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -40,7 +40,6 @@
       .replace(/>/g, "")
       .replace(/script/gi, "");
   }
-</script>
 
 // WhatsApp Popup Functionality
 const whatsappFloat = document.querySelector('.whatsapp-float');

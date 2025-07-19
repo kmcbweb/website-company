@@ -16,9 +16,9 @@
 
     const phoneClean = phone.replace(/\D/g, '');
 
-    // ✨ Sanitize message sebelum kirim
+    // Sanitize message sebelum kirim
     const cleanedMessage = sanitizeText(rawMessage);
-    messageField.value = cleanedMessage; // ✅ Ubah langsung isi textarea biar Netlify dapet data yang bersih
+    messageField.value = cleanedMessage; // Ubah langsung isi textarea biar Netlify dapet data yang bersih
 
     // Validasi nama
     if (!name || name.length < 2 || !/^[a-zA-Z\s'.-]+$/.test(name)) {

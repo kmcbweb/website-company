@@ -1,12 +1,18 @@
-/* Hero Slider Styles */
-.hero-slider {
+:root {
+   
+    --secondary-color: #202820;
+    --white: #fff;
+  }
+  
+  /* Hero Slider Styles */
+  .hero-slider {
     position: relative;
     height: 650px;
     overflow: hidden;
     background: var(--secondary-color);
-}
-
-.slide {
+  }
+  
+  .slide {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -18,20 +24,20 @@
     background-size: cover;
     background-position: center;
     z-index: 1;
-}
-
-.slide.active {
+  }
+  
+  .slide.active {
     opacity: 1;
-}
-
-.slide-content {
+  }
+  
+  .slide-content {
     text-align: center;
     color: var(--white);
     z-index: 2;
     padding: 20px;
-}
-
-.slide::after {
+  }
+  
+  .slide::after {
     content: '';
     position: absolute;
     top: 0;
@@ -39,121 +45,92 @@
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-}
-
-.slide h1 {
+  }
+  
+  .slide h1 {
     font-size: 3em;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-/* Service Categories */
-.service-categories {
-    padding: 60px 5%;
-    background: var(--light-bg);
-}
-
-/* Project Gallery */
-.project-gallery {
-    padding: 60px 5%;
-    background: var(--white);
-}
-
-.section-title {
+  }
+  
+  .service-categories {
+    padding: 60px 20px;
+    background: #fff;
     text-align: center;
-    margin-bottom: 40px;
-    color: var(--secondary-color);
-    font-size: 2.5em;
-}
-
-.project-grid {
+  }
+  
+  .service-grid {
     display: flex;
-    overflow-x: auto;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
-    padding: 20px 0;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-}
-
-.project-grid::-webkit-scrollbar {
-    height: 8px;
-}
-
-.project-grid::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.project-grid::-webkit-scrollbar-thumb {
-    background: #202820;
-    border-radius: 4px;
-}
-
-.project-card {
-    flex: 0 0 300px;
-    background: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: #202820;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-.project-card img {
+  }
+  
+  .service-grid a {
+    flex: 0 0 calc(33.333% - 20px);
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .service-img-container {
+    position: relative;
     width: 100%;
     height: 200px;
+    overflow: visible;
+  }
+  
+  .service-img-container img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+  }
+  
+  .icon-circle {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1976d2;
+    color: #fff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  
+  h3 {
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    text-transform: uppercase;
+  }
+  
+  .line {
+    width: 40px;
+    height: 3px;
+    background: #f1c40f;
+    margin: 10px auto;
+  }
+  
+  .service-grid p {
+    font-size: 14px;
+    color: #666;
+    padding: 0 20px 30px;
+  }
+  
+  
+  @media (max-width: 768px) {
+  .service-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .body {
+    min-width: 320px;
+    overflow-x: auto;
+  }
 }
-
-.project-info {
-    padding: 20px;
-    color: var(--white);
-}
-
-.project-info p {
-    color: var(--white);
-    line-height: 1.6;
-    margin: 0;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.service-card {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: #202820;
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-.service-card i {
-    font-size: 3em;
-    color:#202820;
-    margin-bottom: 20px;
-}
-
-.service-card h3 {
-    color: #202820;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-}
-
-.service-card p {
-    color: #202820;
-    line-height: 1.6;
-}
-

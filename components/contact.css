@@ -201,13 +201,47 @@
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+
+@media (max-width: 768px) {
     .info-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* satu kolom saja di mobile */
+        gap: 30px;
+    }
+
+    .info-details {
+        padding: 20px;
+    }
+
+    .info-item h3 {
+        font-size: 1em;
+    }
+
+    .info-item i {
+        font-size: 1.3em;
+        width: 25px;
     }
 
     .map-container {
         min-height: 300px;
+    }
+
+    .form-container h2 {
+        font-size: 1.6em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+
+    .submit-btn {
+        font-size: 1em;
+        padding: 10px 25px;
+    }
+
+    .social-links a {
+        font-size: 1.3em;
     }
 
     .whatsapp-float {
@@ -221,5 +255,36 @@
     .whatsapp-popup {
         bottom: 80px;
         right: 20px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-info-section,
+    .contact-form-section {
+        padding: 40px 5%;
+    }
+
+    .form-container h2 {
+        font-size: 1.4em;
+    }
+
+    .info-item p,
+    .info-item h3 {
+        font-size: 0.95em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9em;
+    }
+
+    .submit-btn {
+        font-size: 0.95em;
+        padding: 10px 20px;
+    }
+
+    .social-links {
+        gap: 15px;
     }
 }

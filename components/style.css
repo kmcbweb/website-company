@@ -959,8 +959,8 @@ body {
     .project-info {
         transform: translateY(0);
         position: static;
-        background: #f0f0f0;
-        color: #222;
+        background: #fff;
+        color: #202820;
         padding: 0.7rem 0.5rem;
     }
 

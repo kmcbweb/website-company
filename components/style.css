@@ -938,15 +938,59 @@ body {
 
 
 @media (max-width: 768px) {
-  .project-grid h3 {
-    font-size: 1.1rem;
-  }
+    .projects h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-grid {
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .project-card {
+        flex: 0 0 230px;
+    }
+
+    .project-card img {
+        height: 160px;
+    }
+
+    /* Show info by default on mobile */
+    .project-info {
+        transform: translateY(0);
+        position: static;
+        background: #f0f0f0;
+        color: #222;
+        padding: 0.7rem 0.5rem;
+    }
+
+    .project-info h3 {
+        color: #202820;
+        font-size: 1rem;
+    }
+
+    .project-info p {
+        font-size: 0.85rem;
+        color: #555;
+    }
 }
 
 @media (max-width: 480px) {
-  .project-grid h3 {
-    font-size: 1rem;
-  }
+    .project-card {
+        flex: 0 0 200px;
+    }
+
+    .project-card img {
+        height: 140px;
+    }
+
+    .project-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .project-info p {
+        font-size: 0.8rem;
+    }
 }
 
 /* Services Section */

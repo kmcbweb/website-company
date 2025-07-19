@@ -1073,14 +1073,79 @@ body {
     animation: countUp 2s ease-out forwards;
 }
 
-@keyframes countUp {
-    from {
-        content: "0";
-    }
-    to {
-        content: "50+";
-    }
+/* ✅ Mobile Optimization for Services & Stats */
+
+@media (max-width: 768px) {
+  /* SERVICES SECTION */
+  .services {
+    padding: 3rem 4%;
+  }
+
+  .services h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-grid {
+    gap: 1.2rem;
+    padding: 0.5rem 0;
+  }
+
+  .service-card {
+    flex: 0 0 250px;
+    padding: 1.5rem;
+  }
+
+  .service-card i {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  /* STATS SECTION */
+  .stats {
+    padding: 3rem 4%;
+  }
+
+  .stats-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .slic-logo {
+    height: 120px;
+    width: auto;
+  }
+
+  .stats-number h2 {
+    font-size: 4rem;
+  }
+
+  .stats-number p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
 }
+
+@media (max-width: 480px) {
+  .service-card {
+    flex: 0 0 220px;
+    padding: 1.2rem;
+  }
+
+  .service-card i {
+    font-size: 2.2rem;
+  }
+
+  .services h2,
+  .stats-number p {
+    font-size: 1.5rem;
+  }
+
+  .stats-number h2 {
+    font-size: 3.5rem;
+  }
+}
+
 
 
 

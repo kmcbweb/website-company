@@ -371,19 +371,47 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-    
     .about-us {
         padding: 60px 4%;
     }
-}
 
+    .about-us h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-text p {
+        font-size: 1em;
+        text-align: justify;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .feature {
+        padding: 15px;
+    }
+
+    .feature i {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .feature h3 {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+
+    .feature p {
+        font-size: 0.85em;
+    }
+}
 
   
   /* CTA */

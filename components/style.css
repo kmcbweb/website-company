@@ -62,6 +62,8 @@ body {
     background-image: url('../assets/background/footer-bg.svg');
     background-size: cover;
     background-position: center;
+       background-color: rgba(0, 0, 0, 0.3); /* tambahkan warna gelap */
+  background-blend-mode: darken;
     color: #fff;
     padding-top: 60px;
     transition: transform 0.3s ease, opacity 0.3s ease;

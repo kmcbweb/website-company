@@ -107,8 +107,19 @@
     .services {
         grid-template-columns: 1fr;
     }
-
+.company-focus p {
+        font-size: 14px; 
+    }
     .service-card {
         margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 15px;
+    }
+
+    .service-card p {
+        font-size: 15px;
     }
 }
